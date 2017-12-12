@@ -1,0 +1,83 @@
+{%extends "header_base.html"%}
+{% block title %}Home{% endblock%}
+{%block content%}
+{% load static %}
+
+
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "List of Album" "song_list"  %}
+{% endblock %}
+
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+    <div class="row">
+        <h2>Album</h2>
+        <p>Album helps you manage the song for each live session:</p>
+        <button type="button" class="btn btn-default btn-xs" data-toggle="modal"
+                data-target="#myModal-{{item.id}}">
+            Add New Album
+        </button>
+    </div>
+    <div class="row image-row-gallery">
+        {% if song_list %}
+        {% for list in song_list %}
+
+        <div class="gallery">
+
+                {% if list.image %}
+                <img id="myImg" class="myImg" alt="description" class="img-responsive" src="{% static list.image %}">
+                {% else %}
+                <img src="{% static 'tempo/images/default-cover-album.png' %}" width="300" height="300" height="70"/>
+                {% endif %}
+
+            <div class="desc">{{list.name}} <br>
+                <h6>{{list.creation_time}}</h6>
+                <a href="{% url 'album_detail' album_id=list.id %}">See Song List</a>
+            </div>
+
+        </div>
+
+        {%endfor%}
+        {%endif%}
+        {{errors}}
+
+    </div>
+
+
+    <!-- Modal -->
+    <!-- http://getbootstrap.com/docs/3.3/javascript/#modals -->
+    <div class="modal fade" id="myModal-{{item.id}}" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="Add Comment" id="myModalLabel">Song List Name</h4>
+                </div>
+                <form action="/add_song_list" method="post">
+                    <div class="modal-body">
+                        {% for field in form.visible_fields %}
+                        <div>{{field}}</div>
+                        {{field.errors}}
+                        {% endfor %}
+                        {% for field in form.hidden_fields %}
+                        {{field}}
+                        {% endfor %}
+                    </div>
+                    <div class="modal-footer">
+                        {% csrf_token %}
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary comment-btn" id="{{item.id}}">Submit
+                        </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

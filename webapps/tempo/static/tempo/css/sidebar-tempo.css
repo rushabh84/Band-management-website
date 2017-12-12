@@ -1,0 +1,329 @@
+/***
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+
+Source: https://bootsnipp.com/snippets/featured/user-profile-sidebar
+***/
+
+
+/* Profile container */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #341D00;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #F9DBAD;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #F9DBAD;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #341d00;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #341d00;
+  background-color: #f6f9fb;
+  border-left: 2px solid #341d00;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 18px;
+  background: #fff;
+  min-height: 700px;
+
+}
+
+
+/*Login page css*/
+
+.main-login{
+
+    background-color: #F9DBAD;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+
+.main-center{
+
+    margin-top: 30px;
+    padding: 40px 40px;
+    background-color: #F9DBAD;
+    align-content: center;
+
+
+}
+
+.error_msg{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+span.input-group-addon i {
+    color: #341d00;
+    font-size: 25px;
+}
+
+.form-control {
+    height: auto!important;  /*to adjust the size of input boxes to the corresponding icons*/
+    padding: 8px 12px !important;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.log_but{
+    text-align: center;
+    width: 100%;
+    color:#fff;
+    background-color:#341D00;
+    border-color:#341d00;
+    padding: 2px
+}
+
+.login-password{
+	font-size: 17px;
+	text-align: center;
+}
+.login-register{
+    margin-top: 10px;
+	font-size: 17px;
+	text-align: center;
+}
+/*login css end*/
+
+/*register css*/
+.form-group-button{
+    margin-bottom: 15px;
+    margin-left: 36%;
+    font-size: 8px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.para_styling{
+    color: #341D00;
+    font-weight: bold;
+    width: 70%;
+}
+
+.login-register{
+	font-size: 18px;
+	text-align: center;
+    color: #341D00;
+}
+/**register css ends*/
+
+/*pre profile page*/
+.go_profile{
+    height: 500px;
+    width: 350px;
+    margin-top: 60px;
+    background-color: black;
+    margin-left: 25px;
+    float: left;
+    border-radius: 10%;
+}
+
+.welcome{
+    padding-left: 28%;
+    color: coral;
+    font-size: 30px;
+}
+
+.redirect_profile{
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+    margin-left: 30%;
+    margin-top: 25%;
+}
+
+.create_band{
+    height: 500px;
+    width: 350px;
+    margin-top: 60px;
+    background-color: black;
+    margin-right: 30px;
+    float: right;
+    border-radius: 10%;
+
+}
+
+.create_band_image{
+    height : 300px;
+    width : 250px;
+    border-radius: 5%;
+    margin-top : 67px;
+    margin-left : 51px;
+
+}
+/*end of preprofile*/
+
+/*user profile page*/
+.panel-body{
+    padding:15px;
+    background-color:#341D00;
+}
+
+.panel-default{
+    border-color:black;
+}
+
+.bold_styling1{
+    color: #5a7391;
+}
+
+.media-body{
+    overflow: auto;
+    zoom:1;  /*to render the elements inside the div portion*/
+    color: blanchedalmond;
+}
+
+#hr_id1{
+    width: 50%;
+    border-color: darkolivegreen
+}
+
+.header_edit{
+    margin-left: 25%;
+}
+
+.pre_styling{
+    margin-top: 30px;
+}
+
+.pre_styling_bio {
+    margin-top: 30px;
+    color: darkolivegreen;
+    width: 70%;
+}
+.heading1_styling{
+    margin-left: 34%;
+    color: #57534b;
+}
+
+.heading2_styling{
+    margin-left: 30%;
+    color: #57534b;
+}
+
+.position1{
+    float: left;
+}
+
+.position2{
+    float: right;
+    height: 650px;
+    width: 700px;
+    background-color: #341D00;
+}
+
+.band_list{
+    background-color: #341D00;
+    color: white;
+    height: 150px;
+    width: 600px;
+}
+
+.band_name{
+    font-weight: bold;
+    color: #341D00;
+    padding-top: 13px;
+}
+
+.band_event{
+    font-weight: bold;
+    color: #341D00;
+
+
+}
+/*end of user profile page*/
+
+.create_event{
+    padding-left: 60%;
+}

@@ -1,0 +1,74 @@
+{%extends "header_base.html"%}
+
+{% block title %}Recorder{% endblock%}
+{%block content%}
+{% load static %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% clear_breadcrumbs %}
+{% block breadcrumbs %}
+{{ block.super }}
+{% breadcrumb username "team_member" %}
+{% endblock %}
+
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+    <div class="row">
+        <h2>Home page for : {{band_name}}</h2>
+    </div>
+    <div class="row image-row-gallery list-group-item">
+        <h2>Album</h2>
+        {% if song_list %}
+        {% for list in song_list %}
+
+        <div class="gallery">
+
+            {% if list.image %}
+            <img id="myImg" class="myImg" alt="description" class="img-responsive" src="{% static list.image %}">
+            {% else %}
+            <img src="{% static 'tempo/images/default-cover-album.png' %}" width="300" height="300" height="70"/>
+            {% endif %}
+
+            <div class="desc">{{list.name}} <br>
+                <h6>{{list.creation_time}}</h6>
+                <a href="{% url 'album_detail' album_id=list.id %}">See Song List</a>
+            </div>
+
+        </div>
+
+        {%endfor%}
+        {% else %}
+        <p> There's no album in this band.</p>
+        {%endif%}
+
+        {{errors}}
+
+    </div>
+    <div class="row list-group-item">
+        <h1>Team member of {{band_name}}</h1>
+        {% for member in team_member %}
+        <div class="col-md-12 list-group-item ">
+            <div class="col-md-3" style="display: flex;">
+                <div class="pull-left image" id="post_image">
+                    <img src="{% static member.artist.image %}" class="img-responsive" alt="{{member.username}}"
+                         class=" img-circle"
+                         width="100px" high="100px">
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div class="title text-left" id="post_image_owner">
+
+                    <h5> @{{member.username}}</h5>
+                    <h5> {{member.first_name}}&ensp;{{member.last_name}}</h5>
+
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% endblock %}

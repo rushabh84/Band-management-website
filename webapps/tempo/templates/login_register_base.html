@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'tempo/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Customized CSS -->
+    <link href="{% static 'tempo/css/bootstrap-tempo.css' %}" rel="stylesheet">
+    <link href="{% static 'tempo/css/sidebar-tempo.css' %}" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'tempo/images/favicon.ico' %}">
+
+    <!-- Bootstrap Javascript -->
+    <script src="{% static 'tempo/js/jquery-3.2.1.js' %}"></script>
+    <script src="{% static 'tempo/js/bootstrap.min.js' %}"></script>
+    <title>Tempo</title>
+</head>
+<body>
+<div class="container">
+    <div class="row ">
+        <div class="col-md-offset-3 col-md-6 panel main-login main-center">
+                {% block content %}{% endblock %}
+        <!-- End of  Main Content -->
+    </div>
+
+    </div>
+
+</div>
+</body>
+</html>

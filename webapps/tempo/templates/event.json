@@ -1,0 +1,4 @@
+{
+"title": "{{event.event_name}}",
+"start": "{{event.start_date|date:'c'}}"
+}

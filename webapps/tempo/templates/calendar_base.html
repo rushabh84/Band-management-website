@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% load static %}
+    <link href='./static/tempo/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='./static/tempo/css/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <script src='./static/tempo/js/moment.min.js'></script>
+    <script src='./static/tempo/js/jquery.min.js'></script>
+    <script src='./static/tempo/js/fullcalendar.min.js'></script>
+    <script src='./static/tempo/js/gcal.min.js'></script>
+    <link href="{% static 'tempo/css/calendar.css' %}" rel="stylesheet">
+    <script src='./static/tempo/js/calendar.js'></script>
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'tempo/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Customized CSS -->
+    <link href="{% static 'tempo/css/bootstrap-tempo.css' %}" rel="stylesheet">
+    <link href="{% static 'tempo/css/sidebar-tempo.css' %}" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'tempo/images/favicon.ico' %}">
+    <!-- Bootstrap Javascript -->
+    <script src="{% static 'tempo/js/jquery-3.2.1.js' %}"></script>
+    <script src="{% static 'tempo/js/bootstrap.min.js' %}"></script>
+    <title>Tempo</title>
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <div class="row">
+        <div class="col-lg-16 col-md-12" role="main">
+            <!--http://getbootstrap.com/docs/3.3/components/#navbar-->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <!--<ul class="navbar-toggle collapsed" style="background-color: transparent;">-->
+                            <!--<li class="dropdown">-->
+                                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+                                   <!--aria-haspopup="true" aria-expanded="false">-->
+                                    <!--Menu-->
+                                <!--</a>-->
+                                <!--<ul class="dropdown-menu">-->
+                                    <!--<li><a href="{% url 'user_home' username=request.user.username %}">My Profile</a></li>-->
+                                    <!--<li role="separator" class="divider"></li>-->
+                                    <!--<li><a href="#">Find Users</a></li>-->
+                                    <!--<li><a href="/logout">Logout</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                        <a class="navbar-brand" href="{% url 'welcome' %}">TEMPO</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Menu
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'user_home' username=user %}">My Profile</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{% url 'edit_profile' username=request.user.username %}">Edit</a> </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{% url 'create' %}">Create Band</a> </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div> <!-- /.col-md-12 -->
+    </div>
+    <!-- End of Header -->
+
+     <!--breadcrumbs-->
+        {% load django_bootstrap_breadcrumbs %}
+        {% block breadcrumbs %}
+            {% clear_breadcrumbs %}
+            {% breadcrumb "Home" "user_home" user.username %}
+        {% endblock %}
+        {% block breadcrumbs_content %}
+            {% render_breadcrumbs %}
+        {% endblock %}
+    <!--end of breadcrumbs-->
+
+    <!-- Main Row -->
+    <!-- Source: https://bootsnipp.com/snippets/featured/user-profile-sidebar-->
+    <div class="row profile profile-content">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <div class="profile-userpic">
+                    <img src="{% url 'photo' id=user.artist.id %}" class="img-responsive" alt="{{user.username}}">
+                </div>
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        @{{request.user.username}}<br>
+                        Bio: {{profile.bio}}
+                    </div>
+                </div>
+                <!-- Sidebar Menu -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li>
+                            <a href="{% url 'user_home' username=user %}">
+                                <i class="glyphicon glyphicon-home"></i>
+                                My Band </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                                <i>Calendar</i></a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class="glyphicon glyphicon-globe"></i>
+                                <i>Live Session</i></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'song_list' %}">
+                                <i class="glyphicon glyphicon-music"></i>
+                                Song List </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <i>Team Member</i></a>
+                        </li>
+                         <li>
+                            <a href="{% url 'audio_recorder' %}">
+                                <i class="glyphicon glyphicon-music"></i>
+                                Audio Recorder </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End of Sidebar Menu -->
+            </div>
+        </div>
+        <!-- End of Sidebar -->
+        <!-- Main Content -->
+        <div class="col-md-9">
+            <div class="position3">
+                <div>{% block content %}{% endblock %}</div>
+            </div>
+        </div>
+        <!-- End of  Main Content -->
+    </div>
+    <!-- End of Main Row -->
+</div>
+</body>
+</html>
